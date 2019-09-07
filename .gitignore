@@ -1,5 +1,6 @@
 lib/
 exampledist/static/
+package-lock.json
 
 # Logs
 logs
