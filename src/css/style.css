@@ -354,7 +354,7 @@ table.scheduler-bg-table th {
     right: 0;
 }
 #RBS-Scheduler-root .overflow-text.header2-text .slot-cell:before{
-    content: "";
+    content: ""; 
     position: absolute;
     top: -6px;
     right: 9px;
