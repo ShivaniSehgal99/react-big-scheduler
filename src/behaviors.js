@@ -48,7 +48,7 @@ export const getNonAgendaViewBodyCellBgColor = (schedulerData, slotId, header) =
 export const getDateLabel = (schedulerData, viewType, startDate, endDate) => {
     let start = schedulerData.localeMoment(startDate);
     let end = schedulerData.localeMoment(endDate);
-    let dateLabel = start.format('MMM D, YYYY');
+    let dateLabel = start.format('dddd, MMM D, YYYY');
 
     if(viewType === ViewTypes.Week || (start != end && (
         viewType === ViewTypes.Custom || viewType === ViewTypes.Custom1 || viewType === ViewTypes.Custom2
