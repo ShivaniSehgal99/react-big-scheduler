@@ -139,7 +139,7 @@
 #RBS-Scheduler-root sup {
   top: -0.5em;
 }
-#RBS-Scheduler-root a {
+/* #RBS-Scheduler-root a {
   color: #1890ff;
   text-decoration: none;
   background-color: transparent;
@@ -153,7 +153,7 @@
 }
 #RBS-Scheduler-root a:active {
   color: #096dd9;
-}
+} */
 #RBS-Scheduler-root a:active,
 #RBS-Scheduler-root a:hover {
   text-decoration: none;
