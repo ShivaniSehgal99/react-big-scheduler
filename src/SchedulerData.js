@@ -723,6 +723,7 @@ export default class SchedulerData {
                 hasChildren: false,
                 expanded: true,
                 render: true,
+                grandParentClass: slot.grandParentClass,
                 parentClass: slot.parentClass,
                 childClass: slot.childClass,
             };
