@@ -18,7 +18,7 @@ class ResourceView extends Component {
 
     render() {
 
-        const {schedulerData, contentScrollbarHeight, slotClickedFunc, slotItemTemplateResolver, toggleExpandFunc} = this.props;
+        const {schedulerData, contentScrollbarHeight, slotClickedFunc, slotItemTemplateResolver, toggleExpandFunc, handleClickResource} = this.props;
         const {renderData} = schedulerData;
 
         let width = schedulerData.getResourceTableWidth() - 2;
@@ -74,7 +74,7 @@ class ResourceView extends Component {
                 <tr key={item.slotId}>
                     <td data-resource-id={item.slotId} style={tdStyle} className={item.grandParentClass}>
                         {slotItem}
-                        <div className={item.parentClass}>
+                        <div className={item.parentClass} onClick={() => handleClickResource(item)}>
                             <div className={item.childClass}></div>
                         </div>
                     </td>
