@@ -723,6 +723,8 @@ export default class SchedulerData {
                 hasChildren: false,
                 expanded: true,
                 render: true,
+                parentClass: slot.parentClass,
+                childClass: slot.childClass,
             };
             let id = slot.id;
             let value = undefined;

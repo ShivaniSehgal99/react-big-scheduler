@@ -72,8 +72,9 @@ class ResourceView extends Component {
 
             return (
                 <tr key={item.slotId}>
-                    <td data-resource-id={item.slotId} style={tdStyle}>
+                    <td data-resource-id={item.slotId} style={tdStyle} className={item.parentClass}>
                         {slotItem}
+                        <div className={item.childClass}></div>
                     </td>
                 </tr>
             );
