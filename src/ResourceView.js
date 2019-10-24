@@ -77,7 +77,7 @@ class ResourceView extends Component {
                         <div className={item.parentClass} onClick={() => handleClickResource(item)}>
                             <div className={item.childClass}></div>
                         </div>
-                        {item.slotId === resourceStatus.slotId
+                        {resourceStatus && item.slotId === resourceStatus.slotId
                             && <div className='status-list'>{resourceStatus.resourceStatusComponent}</div>}
                     </td>
                 </tr>
