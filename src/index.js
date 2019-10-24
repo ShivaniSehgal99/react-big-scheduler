@@ -159,7 +159,7 @@ class Scheduler extends Component {
     }
 
     render() {
-        const { schedulerData, leftCustomHeader, rightCustomHeader, ResourceHeaderComponent } = this.props;
+        const { schedulerData, leftCustomHeader, rightCustomHeader, ResourceHeaderComponent, EndMessage } = this.props;
         const { renderData, viewType, showAgenda, isEventPerspective, config } = schedulerData;
         const width = schedulerData.getSchedulerWidth();
         const calendarPopoverEnabled = config.calendarPopoverEnabled;
@@ -216,6 +216,7 @@ class Scheduler extends Component {
             }
 
             let resourceName = schedulerData.isEventPerspective ? config.taskName : config.resourceName;
+            let resources = renderData.filter(o => o.render);
             tbodyContent = (
                 <tr>
                     <td style={{width: resourceTableWidth, verticalAlign: 'top'}}>
@@ -252,22 +253,25 @@ class Scheduler extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div style={schedulerContentStyle} ref={this.schedulerContentRef} onMouseOver={this.onSchedulerContentMouseOver} onMouseOut={this.onSchedulerContentMouseOut} onScroll={this.onSchedulerContentScroll} >
-                                <div style={{width: schedulerWidth, height: contentHeight}}>
-                                    <div className="scheduler-content">
-                                        <table className="scheduler-content-table" >
-                                            <tbody>
-                                                {resourceEventsList}
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div className="scheduler-bg">
-                                        <table className="scheduler-bg-table" style={{width: schedulerWidth}} ref={this.schedulerContentBgTableRef} >
-                                            <BodyView {...this.props}/>
-                                        </table>
+                            {resources.length
+                                ? <div style={schedulerContentStyle} ref={this.schedulerContentRef} onMouseOver={this.onSchedulerContentMouseOver} onMouseOut={this.onSchedulerContentMouseOut} onScroll={this.onSchedulerContentScroll} >
+                                    <div style={{width: schedulerWidth, height: contentHeight}}>
+                                        <div className="scheduler-content">
+                                            <table className="scheduler-content-table" >
+                                                <tbody>
+                                                    {resourceEventsList}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div className="scheduler-bg">
+                                            <table className="scheduler-bg-table" style={{width: schedulerWidth}} ref={this.schedulerContentBgTableRef} >
+                                                <BodyView {...this.props}/>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                                : EndMessage || ''
+                            }
                         </div>
                     </td>
                 </tr>
