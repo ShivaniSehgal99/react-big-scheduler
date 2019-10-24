@@ -18,7 +18,7 @@ class ResourceView extends Component {
 
     render() {
 
-        const {schedulerData, contentScrollbarHeight, slotClickedFunc, slotItemTemplateResolver, toggleExpandFunc, handleClickResource} = this.props;
+        const {schedulerData, contentScrollbarHeight, slotClickedFunc, slotItemTemplateResolver, toggleExpandFunc, handleClickResource, ResourceStatus} = this.props;
         const {renderData} = schedulerData;
 
         let width = schedulerData.getResourceTableWidth() - 2;
@@ -77,6 +77,7 @@ class ResourceView extends Component {
                         <div className={item.parentClass} onClick={() => handleClickResource(item)}>
                             <div className={item.childClass}></div>
                         </div>
+                        <div className='status-list'>{ResourceStatus}</div>
                     </td>
                 </tr>
             );
