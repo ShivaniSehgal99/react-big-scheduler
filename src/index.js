@@ -159,7 +159,7 @@ class Scheduler extends Component {
     }
 
     render() {
-        const { schedulerData, leftCustomHeader, rightCustomHeader } = this.props;
+        const { schedulerData, leftCustomHeader, rightCustomHeader, ResourceHeaderComponent } = this.props;
         const { renderData, viewType, showAgenda, isEventPerspective, config } = schedulerData;
         const width = schedulerData.getSchedulerWidth();
         const calendarPopoverEnabled = config.calendarPopoverEnabled;
@@ -226,7 +226,7 @@ class Scheduler extends Component {
                                         <thead>
                                         <tr style={{height: config.tableHeaderHeight}}>
                                             <th className="header3-text">
-                                                {resourceName}
+                                                {ResourceHeaderComponent || resourceName}
                                             </th>
                                         </tr>
                                         </thead>
