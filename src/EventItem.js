@@ -505,8 +505,15 @@ class EventItem extends Component {
             <div className={roundCls + ' event-item'} key={eventItem.id}
                  style={{height: config.eventItemHeight, backgroundColor: bgColor}}>
                 <span style={{marginLeft: '10px', lineHeight: `${config.eventItemHeight}px` }}>{eventTitle}</span>
-                <span className={resourceType}></span>
-                <span className={resourceCategory}></span>
+                <span className={resourceType} id={`${(eventItem.state && eventItem.state.type) ? eventItem.state.type[0].toUpperCase() : ''}`}>
+                {(eventItem.state && eventItem.state.type)
+                    ? (eventItem.state.type === 'Work Order'
+                        ? 'WO'
+                        : eventItem.state.type[0].toUpperCase())
+                    : ''
+                    }
+                </span>
+                <span className={resourceCategory}>{eventItem.state ? eventItem.state.reportCategory : ''}</span>
             </div>
         );
         if(eventItemTemplateResolver != undefined)
