@@ -473,7 +473,7 @@ class EventItem extends Component {
     }
 
     render() {
-        const {eventItem, isStart, isEnd, isInPopover, eventItemClick, schedulerData, isDragging, connectDragSource, connectDragPreview, eventItemTemplateResolver} = this.props;
+        const {eventItem, isStart, isEnd, isInPopover, eventItemClick, schedulerData, isDragging, connectDragSource, connectDragPreview, eventItemTemplateResolver, resourceType, resourceCategory} = this.props;
         const {config, localeMoment} = schedulerData;
         const {left, width, top} = this.state;
         let roundCls = isStart ? (isEnd ? 'round-all' : 'round-head') : (isEnd ? 'round-tail' : 'round-none');
@@ -505,6 +505,8 @@ class EventItem extends Component {
             <div className={roundCls + ' event-item'} key={eventItem.id}
                  style={{height: config.eventItemHeight, backgroundColor: bgColor}}>
                 <span style={{marginLeft: '10px', lineHeight: `${config.eventItemHeight}px` }}>{eventTitle}</span>
+                <span className={resourceType}></span>
+                <span className={resourceCategory}></span>
             </div>
         );
         if(eventItemTemplateResolver != undefined)
