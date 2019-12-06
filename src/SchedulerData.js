@@ -898,7 +898,7 @@ export default class SchedulerData {
                         if(header.count > resourceEvents.rowMaxCount) {
                             resourceEvents.rowMaxCount = header.count;
                             let rowsCount = (cellMaxEventsCount <= cellMaxEventsCountValue && resourceEvents.rowMaxCount > cellMaxEventsCount) ? cellMaxEventsCount : resourceEvents.rowMaxCount;
-                            let newRowHeight = rowsCount * this.config.eventItemLineHeight + (this.config.creatable && this.config.checkConflict === false ? 20 : 2);
+                            let newRowHeight = rowsCount * this.config.eventItemLineHeight + (this.config.creatable && this.config.checkConflict === false ? 10 : 2);
                             if(newRowHeight > resourceEvents.rowHeight)
                                 resourceEvents.rowHeight = newRowHeight;
                         }
@@ -970,7 +970,7 @@ export default class SchedulerData {
                 resourceEvents.hasSummary = hasSummary;
                 if(hasSummary) {
                     let rowsCount = (cellMaxEventsCount <= cellMaxEventsCountValue && resourceEvents.rowMaxCount > cellMaxEventsCount) ? cellMaxEventsCount : resourceEvents.rowMaxCount;
-                    let newRowHeight = (rowsCount + 1) * this.config.eventItemLineHeight + (this.config.creatable && this.config.checkConflict === false ? 20 : 2);
+                    let newRowHeight = (rowsCount + 1) * this.config.eventItemLineHeight + (this.config.creatable && this.config.checkConflict === false ? 10 : 2);
                     if(newRowHeight > resourceEvents.rowHeight)
                         resourceEvents.rowHeight = newRowHeight;
                 }
