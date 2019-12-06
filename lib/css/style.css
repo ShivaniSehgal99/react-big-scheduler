@@ -241,7 +241,7 @@ table.resource-table tr td:last-child, /*table.scheduler-bg-table tr td:last-chi
     
     
     #RBS-Scheduler-root .resource-table tr td{
-    height: 50px !important;
+    /* height: 50px !important; */
     line-height: 16px;
     font-size: 14px;
     font-weight: 700;
@@ -273,9 +273,9 @@ table.resource-table tr td:last-child, /*table.scheduler-bg-table tr td:last-chi
     #RBS-Scheduler-root .slot-cell{
     padding-left: 0;
     }
-    #RBS-Scheduler-root .scheduler-content-table .event-container, #RBS-Scheduler-root .scheduler-bg .scheduler-bg-table tbody tr{
+    /* #RBS-Scheduler-root .scheduler-content-table .event-container, #RBS-Scheduler-root .scheduler-bg .scheduler-bg-table tbody tr{
     height: 51px !important;
-    }
+    } */
     
     #RBS-Scheduler-root .scheduler-view > div:first-child{
     height: 50px !important;
@@ -329,10 +329,10 @@ table.resource-table tr td:last-child, /*table.scheduler-bg-table tr td:last-chi
     }
     #RBS-Scheduler-root .scheduler-content-table .event-container .timeline-event{
     /* width: 128px!important; */
-    top: -1px !important;
-    z-index: 9999;
+    /* top: 0px !important; */
+    /* z-index: 9999;
     position: absolute;
-    padding-left: 0px;
+    padding-left: 0px; */
     }
     
     /* this will be remove accoriding to development */
