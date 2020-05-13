@@ -69,6 +69,7 @@ export default class DnDSource {
                 }
 
                 if(hasConflict) {
+                    console.log('inside has conflict', schedulerData, item, slotId, slotName)
                     const {conflictOccurred} = props;
                     if(conflictOccurred != undefined){
                         conflictOccurred(schedulerData, action, item, type, slotId, slotName, newStart, newEnd);
@@ -80,10 +81,12 @@ export default class DnDSource {
                 else {
                     if(isEvent) {
                         if (moveEvent !== undefined) {
+                            console.log('inside move event', schedulerData, item, slotId, slotName);
                             moveEvent(schedulerData, item, slotId, slotName, newStart, newEnd);
                         }
                     }
                     else {
+                        console.log('inside new event', schedulerData, item, slotId, slotName);
                         if(newEvent !== undefined)
                             newEvent(schedulerData, slotId, slotName, newStart, newEnd, type, item);
                     }

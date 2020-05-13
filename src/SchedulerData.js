@@ -976,6 +976,7 @@ export default class SchedulerData {
                 }
             });
         }
+        console.log('init render data', initRenderData);
 
         this.renderData = initRenderData;
     }
