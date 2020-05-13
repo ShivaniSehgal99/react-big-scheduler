@@ -902,15 +902,6 @@ export default class SchedulerData {
                             if(newRowHeight > resourceEvents.rowHeight)
                                 resourceEvents.rowHeight = newRowHeight;
                         }
-
-                        if(pos === -1)
-                        {
-                            let tmp = 0;
-                            while (header.events[tmp] !== undefined)
-                                tmp++;
-
-                            pos = tmp;
-                        }
                         let render = headerStart <= eventStart || index === 0;
                         if(render === false){
                             let previousHeader = resourceEvents.headerItems[index - 1];
@@ -918,7 +909,18 @@ export default class SchedulerData {
                             if(previousHeaderEnd <= eventStart || previousHeaderStart >= eventEnd)
                                 render = true;
                         }
-                        header.events[pos] = this._createHeaderEvent(render, span, item);
+                        if(pos === -1)
+                        {
+                            let tmp = 0;
+                            while (header.events[tmp] !== undefined)
+                                tmp++;
+
+                            pos = tmp;
+                            header.events[pos] = this._createHeaderEvent(render, span, item);
+                        } else {
+                            pos = pos + 1;
+                            header.events.splice(0, 0, this._createHeaderEvent(render, span, item));
+                        }
                     }
                 });
             }
@@ -976,7 +978,6 @@ export default class SchedulerData {
                 }
             });
         }
-        console.log('init render data', initRenderData);
 
         this.renderData = initRenderData;
     }
