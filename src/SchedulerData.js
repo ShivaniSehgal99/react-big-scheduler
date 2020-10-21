@@ -76,7 +76,7 @@ export default class SchedulerData {
     }
 
     getMinuteStepsInHour(){
-        return 60 / this.config.minuteStep;
+        return parseInt(60 / this.config.minuteStep);
     }
 
     addResource(resource){
@@ -302,7 +302,7 @@ export default class SchedulerData {
     }    
 
     getContentTableWidth(){
-        return this.headers.length * (this.getContentCellWidth());
+        return parseInt(this.headers.length * (this.getContentCellWidth()));
     }
 
     getScrollToSpecialMoment(){

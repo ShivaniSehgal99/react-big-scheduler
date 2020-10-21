@@ -21,7 +21,7 @@ class BodyView extends Component {
         let tableRows = displayRenderData.map((item) => {
             let rowCells = headers.map((header, index) => {
                 let key = item.slotId + '_' + header.time;
-                let style = index === headers.length - 1 ? {} : {width: cellWidth};
+                let style = index === headers.length - 1 ? {} : {width: parseInt(cellWidth)};
                 if(!!header.nonWorkingTime)
                     style = {...style, backgroundColor: config.nonWorkingTimeBodyBgColor};
                 if(item.groupOnly)
@@ -37,7 +37,7 @@ class BodyView extends Component {
             });
 
             return (
-                <tr key={item.slotId} style={{height: item.rowHeight}}>
+                <tr key={item.slotId} style={{height: parseInt(item.rowHeight)}}>
                     {rowCells}
                 </tr>
             );
