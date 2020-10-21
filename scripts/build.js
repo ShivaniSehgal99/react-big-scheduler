@@ -32,7 +32,7 @@ async function build() {
     cssTarget,
     hackFileName + '.css'
   );
-
+  
   try {
     // clean
     process.stdout.write('Cleaning... \n');
@@ -40,16 +40,16 @@ async function build() {
 
     // transpiling and copy js
     process.stdout.write('Transpiling js with babel... \n');
-    const jsResult = await exec(`babel ${sourceDir} --out-dir ${jsTarget}`);
+    const jsResult = await exec(`babel src --out-dir lib`);
 
     // copy css
     process.stdout.write('Copying library style definitions... \n');
-    const cssResult = await exec(`cpy ${sourceDir}/css/style.css ${cssTarget}`);
+    const cssResult = await exec(`cpy src/css/style.css lib/css`);
 
     // compile antd-hack less into css and copy it into lib
     process.stdout.write('Implementing antd hack... \n');
     const heckResult = await exec(
-      `lessc --js ${hackFileSource} ${hackFileOutputPath}`
+      `lessc --js src/less/antd-globals-hiding-hack.less src/less/antd-globals-hiding-hack.less`
     );
     // append lib/index.js with line importing antd-hack
     const linesToBeAdded = [
