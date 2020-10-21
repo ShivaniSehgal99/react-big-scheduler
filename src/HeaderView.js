@@ -19,6 +19,7 @@ class HeaderView extends Component {
         let headerHeight = schedulerData.getTableHeaderHeight();
         let cellWidth = schedulerData.getContentCellWidth();
         let minuteStepsInHour = schedulerData.getMinuteStepsInHour();
+        console.log('minuteStepsInhour', parseInt(cellWidth*minuteStepsInHour));
 
         let headerList = [];
         let style = {};

@@ -22,6 +22,7 @@ class BodyView extends Component {
             let rowCells = headers.map((header, index) => {
                 let key = item.slotId + '_' + header.time;
                 let style = index === headers.length - 1 ? {} : {width: parseInt(cellWidth)};
+                console.log('scheduler cell width', cellWidth);
                 if(!!header.nonWorkingTime)
                     style = {...style, backgroundColor: config.nonWorkingTimeBodyBgColor};
                 if(item.groupOnly)
